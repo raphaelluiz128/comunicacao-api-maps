@@ -6,10 +6,11 @@
      {{l.data}},  {{l.long}},  {{l.lat}}
    </li>
 </ul>
-<agm-map [latitude]="lat" [longitude]="lng" [usePanning]="true" >
+<agm-map [latitude]="lat" [longitude]="lng" [usePanning]="true" [zoom]=6 >
   <agm-marker  *ngFor="let m of allMarkers"  
   (markerClick)="onClick(m)"  
   [latitude]="m.lat"   
-  [longitude]="m.long"></agm-marker>
+  [longitude]="m.long"
+  [animation]="anim"></agm-marker>
 </agm-map>
 

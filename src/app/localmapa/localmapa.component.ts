@@ -21,6 +21,7 @@ export class LocalmapaComponent implements OnInit {
   title: string = 'Mapa 1';
   lat: number = 80.678418;
   lng: number = 50.809007;
+  anim="BOUNCE";
   allMarkers: Marker[];  
   constructor (private blocaisService: BlocaisService) { 
    // this.allMarkers = this.getAllMarkers(); 
@@ -33,6 +34,8 @@ export class LocalmapaComponent implements OnInit {
   onClick(m: any) {  
     console.log(m);  
   }  
+
+  /*
   onMapClicked($event) {  
     var newMarker:Marker={  
       data:'No Name',  
@@ -48,18 +51,31 @@ export class LocalmapaComponent implements OnInit {
     this.allMarkers.splice(this.allMarkers.indexOf(m),1);  
     this.removeMarker(m);  
   }  
+*/
+
+stopAnim(){
+  setInterval(a=>{
+    this.anim=null;
+  },11000,[]);
+
+ }
+
 
 
   ngOnInit() {
     this.listar();
-    console.log(this.locais);
+    
+    
+    
+    //animation it's DROP, BOUNCE or null. 
+ 
   }
 
  
- 
+
   
 
-
+/*
   addMarker(newmarker: Marker) {  
   
     var markers = JSON.parse(localStorage.getItem('markers'));  
@@ -72,6 +88,8 @@ export class LocalmapaComponent implements OnInit {
     markers.splice(markers.indexOf(mark),1);  
     localStorage.setItem('markers', JSON.stringify(markers));  
   }  
+
+*/
 
   listar(){
    this.blocaisService.listar().subscribe(
@@ -100,7 +118,7 @@ export class LocalmapaComponent implements OnInit {
       //console.log(JSON.stringify(dados));
       //console.log(dados['0'][Object.keys(dados['0'])[1]]); keys 0 e 1, como as keys são números então os valores armazenados em cada linha são: 0 para mostrar data, 1 para lat e 2  para long
      
-    
+      this.stopAnim();
     }
       
     );
