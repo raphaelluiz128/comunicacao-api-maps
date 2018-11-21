@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { LocalmapaComponent } from './localmapa/localmapa.component';
 import { BlocaisService } from './blocais.service';
 import { AgmCoreModule } from '@agm/core';
+import { Marker } from './marker';  
 @NgModule({
   declarations: [
     AppComponent,

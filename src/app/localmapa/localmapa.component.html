@@ -2,8 +2,14 @@
   localmapa works!
 </h2>
 <ul>
-   <li *ngFor="let l of locais">
+   <li *ngFor="let l of allMarkers">
      {{l.data}},  {{l.long}},  {{l.lat}}
    </li>
 </ul>
+<agm-map [latitude]="lat" [longitude]="lng" [usePanning]="true" >
+  <agm-marker  *ngFor="let m of allMarkers"  
+  (markerClick)="onClick(m)"  
+  [latitude]="m.lat"   
+  [longitude]="m.long"></agm-marker>
+</agm-map>
 
