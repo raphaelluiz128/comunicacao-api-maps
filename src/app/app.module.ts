@@ -1,7 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {HttpClientModule} from '@angular/common/http';
-
+import { FormsModule } from '@angular/forms';
+import { AgmDirectionModule } from 'agm-direction' 
 import { AppComponent } from './app.component';
 import { LocalmapaComponent } from './localmapa/localmapa.component';
 import { BlocaisService } from './blocais.service';
@@ -14,8 +15,8 @@ import { Marker } from './marker';
   ],
   imports: [AgmCoreModule.forRoot({
     apiKey: 'AIzaSyDBctvt_SrXU7wenblj-j4guMiBD6TsPJM'
-  }),
-    BrowserModule,
+  }), FormsModule,
+    BrowserModule, AgmDirectionModule,
     HttpClientModule
   ],
   providers: [BlocaisService],

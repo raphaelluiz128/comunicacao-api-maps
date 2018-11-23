@@ -1,16 +1,27 @@
 <h2>
-  localmapa works!
+  Pesquisa de coordenadas
 </h2>
+<form>
+  <input type="text" [(ngModel)]="valueSearch" name="valueSearch">
+  <button (click)="searchDate()">Pesquisa por data!</button>
+  </form>
+  <p>Coordenadas encontradas: </p>
 <ul>
    <li *ngFor="let l of allMarkers">
-     {{l.data}},  {{l.long}},  {{l.lat}}
+     {{l.dateTime}},  {{l.longitude}},  {{l.latitude}}
    </li>
 </ul>
 <agm-map [latitude]="lat" [longitude]="lng" [usePanning]="true" [zoom]=6 >
   <agm-marker  *ngFor="let m of allMarkers"  
-  (markerClick)="onClick(m)"  
-  [latitude]="m.lat"   
-  [longitude]="m.long"
-  [animation]="anim"></agm-marker>
+  
+
+  [latitude]="m.latitude"   
+  [longitude]="m.longitude"
+  [animation]="DROP"
+ >  
+ <agm-info-window></agm-info-window>
+</agm-marker>
+  <agm-direction [origin]="origin" [destination]="destination">
+  </agm-direction>
 </agm-map>
 
