@@ -27,8 +27,7 @@ public destination: any
   //anim="BOUNCE";
   allMarkers: Marker[];  
   constructor (private blocaisService: BlocaisService) { 
-   // this.allMarkers = this.getAllMarkers(); 
-  
+
 
 
   }
@@ -40,56 +39,14 @@ public destination: any
     console.log(m);  
   }  
 
-  /*
-  onMapClicked($event) {  
-    var newMarker:Marker={  
-      data:'No Name',  
-      lat:$event.coords.lat,  
-      lng:$event.coords.lng  
-    }  
-    console.log(newMarker);  
-    this.allMarkers.push(newMarker);  
-    this.addMarker(newMarker);  
-  }  
-  onDelete(m:Marker)  
-  {  
-    this.allMarkers.splice(this.allMarkers.indexOf(m),1);  
-    this.removeMarker(m);  
-  }  
-*/
-
-
-
-
-
   ngOnInit() {
-    this.list();
-    
-    
-    
-    //animation it's DROP, BOUNCE or null. 
+    this.list(); 
  
   }
 
  
 
-  
 
-/*
-  addMarker(newmarker: Marker) {  
-  
-    var markers = JSON.parse(localStorage.getItem('markers'));  
-    markers.push(newmarker);  
-    localStorage.setItem('markers', JSON.stringify(markers));  
-  }  
-  removeMarker(mark: Marker) {  
-  
-    var markers = JSON.parse(localStorage.getItem('markers'));  
-    markers.splice(markers.indexOf(mark),1);  
-    localStorage.setItem('markers', JSON.stringify(markers));  
-  }  
-
-*/
 searchDate(){
 
 if (this.valueSearch != ""){
@@ -115,8 +72,6 @@ this.blocaisService.listarS().subscribe(
    this.lng=parseFloat(this.allMarkers['0'][Object.keys(this.allMarkers['0'])[2]]);
    console.log(this.lat,'##',this.lng);
    
- //this.origin = { lat: parseFloat(this.allMarkers['0'][Object.keys(this.allMarkers['0'])[1]]), lng: parseFloat(this.allMarkers['0'][Object.keys(this.allMarkers['0'])[2]]) }
- //this.destination = { lat: parseFloat(this.allMarkers['1'][Object.keys(this.allMarkers['1'])[1]]), lng: parseFloat(this.allMarkers['1'][Object.keys(this.allMarkers['1'])[2]]) }
 }
  
 );
